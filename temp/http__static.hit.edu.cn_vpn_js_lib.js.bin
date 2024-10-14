@@ -1,0 +1,42 @@
+HTTP/1.1 200 OK
+Content-Type: application/javascript
+Last-Modified: Thu, 06 Jun 2019 01:59:14 GMT
+Accept-Ranges: bytes
+ETag: "05cd70b1cd51:0"
+Server: Server            
+Date: Mon, 14 Oct 2024 11:09:33 GMT
+Content-Length: 791
+
+$(document).ready(function() {
+    $('.nav li > a').click(function() {
+        $('html, body').animate({
+            scrollTop: $($.attr(this, 'href')).offset().top
+        }, 500);
+        return false;
+    });
+    $('.banner .info .download').click(function() {
+        $('html, body').animate({
+            scrollTop: $($.attr(this, 'href')).offset().top
+        }, 500);
+        return false;
+    });
+
+    //响应式导航
+    $('.menuBtn').append('<b></b><b></b><b></b>');
+
+    function autoScrolling() {
+        $('.menuBtn').click(function(event) {
+            $('.hd-r').stop().slideToggle();
+            $(this).toggleClass('open');
+        });
+    }
+
+  
+
+
+    autoScrolling();
+    $(window).resize(function() {
+        autoScrolling();
+    });
+
+});
